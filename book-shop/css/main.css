@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: bisque;
+    font-family: fantasy;
+    
+}
+
+.read-details{
+    background-color: lightgray;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    height: 100%;
+    min-width: 300px;
+    text-align: center;
+}

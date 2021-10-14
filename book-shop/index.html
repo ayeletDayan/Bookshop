@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshop</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="createBooks()">
+    <h1>Welcome to my Bookshop</h1>
+    <section>
+        <select onchange="onSetSorted(this.value)">
+            <option value="TITLE">Title</option>
+            <option value="PRICE">Price</option>
+        </select>
+    </section>
+    <div class="table"></div>
+
+    <div class="read-details" hidden>
+
+    </div>
+    <br>
+    <section class="add-book">
+        <h7>Add Book</h7>
+        <input type="title" placeholder="Book title" />
+        <input type="price" placeholder="Price" />
+        <button onclick="onAddBook()">Add</button>
+    </section>
+
+    <script src="js/storage-service.js"></script>
+    <script src="js/books-service.js"></script>
+    <script src="js/util-service.js"></script>
+</body>
+
+</html>
