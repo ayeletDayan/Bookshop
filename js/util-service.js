@@ -9,26 +9,6 @@ function makeId(length = 3) {
     return txt;
 }
 
-function getSortForDisplay() {
-    const books = gBooks.filter(function (book) {
-        return (book.title && gSortBy === 'title') ||
-            (book.price && gSortBy === 'price')
-    })
-    return books;
-}
-
-function setSort(sortBy) {
-    if (sortBy === 'TITLE')
-        gBooks.sort((book1, book2) => (book1.title > book2.title ? 1 : -1));
-
-    if (sortBy === 'PRICE')
-    gBooks.sort((book1, book2) => book1.price - book2.price);
-}
-
-function onCloseModal() {
-    document.querySelector('.read-details').hidden = true
-}
-
 // function makeLorem(size = 100) {
 //     var words = ['The sky', 'above', 'the port', 'was', 'the color of television', 'tuned', 'to', 'a dead channel', '.', 'All', 'this happened', 'more or less', '.', 'I', 'had', 'the story', 'bit by bit', 'from various people', 'and', 'as generally', 'happens', 'in such cases', 'each time', 'it', 'was', 'a different story', '.', 'It', 'was', 'a pleasure', 'to', 'burn'];
 //     var txt = '';
