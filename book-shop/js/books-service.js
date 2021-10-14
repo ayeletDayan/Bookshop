@@ -39,14 +39,15 @@ function onSetSorted(sortBy) {
     renderBooks()
 }
 
-function onUpdateBook(bookId) { //update price
-    var newPrice = prompt('Insert new price');
-    //todo
+function onUpdateBook(bookId) { //update price //todo saveToStorage
+    var book = getBookById(bookId);
+    book.price = prompt('Insert new price');
+    renderBooks()
+
 }
 
 function onBookDetails(bookId) { //read   
     var book = getBookById(bookId);
-    // console.log(book)
     var strHtmls = `<button style="display: flex; align-items: flex-end;" onclick="onCloseModal()">x</button>
     <h5>${book.title}</h5>
     <div><img src="${book.img}" alt=""> </div><br>
@@ -63,32 +64,40 @@ function getBookById(bookId) {
     })    
 }
 
-function onRemoveBook() { //delete
-    //todo
+function onRemoveBook(bookId) { //delete //todo saveToStorage
+    var book = getBookById(bookId);
+    gBooks.forEach(function findBook(book,idx){
+        if (bookId===book.id) gBooks.splice(idx,1);
+    });
+    renderBooks();
 }
 
 function onAddBook() {
-    addBook(title, price)
-    //todo
+    const elTitle = document.querySelector('input.new-book');
+    const NewTitle = elTitle.value
+    if (!(NewTitle)) return
+    const elPrice = document.querySelector('input.new-price')
+    const NewPrice = elPrice.value
+    gBooks.push(_createBook(NewTitle, NewPrice, ''))
+    // console.log(NewTitle,NewPrice)
+    renderBooks();
+    elTitle.value = '';
+    elPrice.value = '';
 }
 
-function addBook(title, price) {
-    //todo
-}
-
-function add() { //todo
+function add() { //todo saveToStorage
     gRate++;
     var strHTML = '' + gRate;
     var elRate = document.querySelector(".rate");
     elRate.innerHTML = strHTML;
-    // gRate[1].quantity++;    
+        
 }
 
-function reduce() { //todo
+function reduce() { //todo saveToStorage
     if (!gRate) return
     gRate--;
     var strHTML = '' + gRate;
     var elRate = document.querySelector(".rate");
     elRate.innerHTML = strHTML;
-    // gRate[1].quantity--;    
+      
 }
